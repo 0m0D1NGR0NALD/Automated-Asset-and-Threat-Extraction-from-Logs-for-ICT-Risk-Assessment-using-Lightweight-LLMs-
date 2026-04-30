@@ -1,0 +1,2 @@
+2026-04-30T10:23:45 web02 apache[1234]: [error] [client 192.168.1.100] PHP Warning: mysqli_query(): Access denied for user 'webapp'@'localhost'
+2026-04-30T10:25:12 sshd[5678]: Failed password for root from 203.0.113.5 port 22 ssh2
