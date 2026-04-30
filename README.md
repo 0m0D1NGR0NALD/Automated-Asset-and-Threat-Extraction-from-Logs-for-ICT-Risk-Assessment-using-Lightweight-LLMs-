@@ -1,6 +1,7 @@
 # Automated-Asset-Threat-Extraction-from-Logs-for-ICT-Risk-Assessment-using-Lightweight-LLMs-
 
-**Abstract**
+## **Abstract**
+
 Manual ICT risk assessment is often slow, subjective, and hard to scale because it depends heavily on people manually reviewing systems, interpreting risks differently, and repeating the same work every time the environment changes. Based on that problem, I propose a project where I’ll build a Python tool that does the following:
 
 - Parses semi‑structured log entries (syslog, web logs, or CVE text)
@@ -10,7 +11,7 @@ Manual ICT risk assessment is often slow, subjective, and hard to scale because 
   
 The tool is designed as a decision support system to accelerate initial risk assessment but does not replace expert judgment.
 
-Foundational Literature
+## **Foundational Literature**
 
 1. Jeong H, Joe I. "An AI-Based Risk Analysis Framework Using Large Language Models for Web Log Security." Electronics 2025, 14, 3512. https://doi.org/10.3390/electronics14173512
 
