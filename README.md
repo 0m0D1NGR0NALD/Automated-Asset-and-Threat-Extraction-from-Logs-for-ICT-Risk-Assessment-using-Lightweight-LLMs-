@@ -1,4 +1,4 @@
-# Automated-Asset-Threat-Extraction-from-Logs-for-ICT-Risk-Assessment-using-Lightweight-LLMs-
+# Automated Asset & Threat Extraction from Logs for ICT Risk Assessment using Lightweight LLMs
 
 ## **Abstract**
 
