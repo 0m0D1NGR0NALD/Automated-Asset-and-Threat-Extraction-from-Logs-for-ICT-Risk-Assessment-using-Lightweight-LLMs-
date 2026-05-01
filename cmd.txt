@@ -1,12 +1,20 @@
-python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o risk_register_sample.csv 
+# SmolLM2-1.7B
+python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o smolLM2_results_sample.csv 
 
 # Qwen2.5-3B
-python -m src.main --model qwen -i data/datasets/csic_database_sample.txt -o qwen_results.csv
+python -m src.main --model qwen -i data/datasets/csic_database_sample.txt -o qwen_results_sample.csv
 
 # TinyLlama-1.1B
-python -m src.main --model tinyllama -i data/datasets/csic_database_sample.txt -o tinyllama_results.csv
+python -m src.main --model tinyllama -i data/datasets/csic_database_sample.txt -o tinyllama_results_sample.csv
 
 python evaluate_model.py --risk_csv distilroberta_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
 python evaluate_model.py --risk_csv smolLM2_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
 
 python compare_models.py --distilroberta distilroberta_risk_register_sample.csv --smolLM2 smolLM2_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv --output comparison_report.txt
+
+# Windows PowerShell Batch Script
+> .\run_all_models.ps1
+
+# Batch Execution Script (Linux/Mac)
+> chmod +x run_all_models.sh # Make it executable 
+> ./run_all_models.sh
