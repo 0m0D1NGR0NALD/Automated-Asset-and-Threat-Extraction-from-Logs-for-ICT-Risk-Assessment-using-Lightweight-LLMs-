@@ -50,7 +50,7 @@ class SmolLM2Extractor(BaseExtractor):
         # Load model (no quantization for this small model)
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_name,
-            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+            dtype=torch.float16 if self.device == "cuda" else torch.float32,
             low_cpu_mem_usage=True
         ).to(self.device)
         self.model.eval()
