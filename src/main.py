@@ -10,6 +10,8 @@ from src.parser.input_reader import InputReader
 from src.parser.log_preprocessor import LogPreprocessor
 from src.extractor.distilroberta_extractor import DistilRoBERTaExtractor
 from src.extractor.smolLM2_extractor import SmolLM2Extractor
+from src.extractor.qwen_extractor import QwenExtractor
+from src.extractor.tinyllama_extractor import TinyLlamaExtractor
 from src.risk.risk_scorer import RiskScorer
 from src.risk.confidence_filter import ConfidenceFilter
 from src.output.csv_generator import CSVGenerator
@@ -21,22 +23,25 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', '-i', required=True, help='Input file (log, CSV, JSON)')
     parser.add_argument('--output', '-o', default='risk_register.csv', help='Output CSV path')
-    parser.add_argument('--model', choices=['distilroberta', 'smolLM2'], default='distilroberta')
+    parser.add_argument('--model', choices=['distilroberta', 'smolLM2', 'qwen', 'tinyllama'], default='smolLM2')
     args = parser.parse_args()
     
     # Load configuration
     config = Config()
     if args.model != config.get('model.backend'):
         logger.warning(f"Overriding model backend to {args.model}")
-        # you could update config dynamically, but for simplicity we just use model arg
     
     # Choose extractor
     if args.model == 'distilroberta':
         extractor = DistilRoBERTaExtractor()
     elif args.model == 'smolLM2':
         extractor = SmolLM2Extractor()
+    elif args.model == 'qwen':
+        extractor = QwenExtractor()
+    elif args.model == 'tinyllama':
+        extractor = TinyLlamaExtractor()
     
-    # Other components
+    # Risk assessment components
     risk_scorer = RiskScorer(config)
     confidence_filter = ConfidenceFilter(threshold=config.get('model.confidence_threshold', 0.75))
     
