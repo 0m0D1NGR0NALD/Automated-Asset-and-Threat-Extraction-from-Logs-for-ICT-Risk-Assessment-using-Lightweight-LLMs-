@@ -11,7 +11,7 @@ echo "Running TinyLlama..."
 python -m src.main --model tinyllama -i $INPUT_FILE -o tinyllama_results.csv
 
 echo "Comparing all models..."
-python compare_models_uniform.py \
+python experiments/compare_models.py \
     --models SmolLM2:smolLM2_results.csv Qwen:qwen_results.csv TinyLlama:tinyllama_results.csv \
     --ground_truth $GROUND_TRUTH \
     --output comparison_report.txt

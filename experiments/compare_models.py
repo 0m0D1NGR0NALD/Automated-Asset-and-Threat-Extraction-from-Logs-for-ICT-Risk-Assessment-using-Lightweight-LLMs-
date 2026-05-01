@@ -37,7 +37,7 @@ def main():
     parser.add_argument('--models', nargs='+', required=True,
                         help='List of model names and CSV paths in format name:path (e.g., SmolLM2:smol_results.csv)')
     parser.add_argument('--ground_truth', required=True)
-    parser.add_argument('--output', default='comparison_report_uniform.txt')
+    parser.add_argument('--output', default='comparison_report.txt')
     args = parser.parse_args()
 
     # Parse model spec
@@ -59,7 +59,7 @@ def main():
     # Generate report
     report_lines = []
     report_lines.append("=" * 70)
-    report_lines.append("MODEL COMPARISON REPORT (Uniform JSON Output)")
+    report_lines.append("MODEL COMPARISON REPORT")
     report_lines.append("=" * 70)
     report_lines.append(f"\n{'Model':<20} {'Accuracy':<10} {'Precision':<10} {'Recall':<10} {'F1':<10}")
     report_lines.append("-" * 70)

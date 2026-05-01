@@ -1,4 +1,3 @@
-from .distilroberta_extractor import DistilRoBERTaExtractor
 from .smolLM2_extractor import SmolLM2Extractor
 from .qwen_extractor import QwenExtractor
 from .tinyllama_extractor import TinyLlamaExtractor
