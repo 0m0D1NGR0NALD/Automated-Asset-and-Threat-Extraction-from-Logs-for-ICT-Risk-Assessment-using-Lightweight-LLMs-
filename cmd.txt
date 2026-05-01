@@ -1,0 +1,6 @@
+python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o risk_register_sample.csv 
+python -m src.main --model distilroberta -i data/datasets/csic_database_sample.txt -o risk_register_sample.csv 
+
+
+python evaluate_model.py --risk_csv distilroberta_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
+python evaluate_model.py --risk_csv smolLM2_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
