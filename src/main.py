@@ -1,10 +1,15 @@
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import argparse
 from src.utils.config import Config
 from src.utils.logger import setup_logger
 from src.parser.input_reader import InputReader
 from src.parser.log_preprocessor import LogPreprocessor
 from src.extractor.distilroberta_extractor import DistilRoBERTaExtractor
-# from src.extractor.gpt_extractor import GPTExtractor   # optional
+from src.extractor.smolLM2_extractor import SmolLM2Extractor
 from src.risk.risk_scorer import RiskScorer
 from src.risk.confidence_filter import ConfidenceFilter
 from src.output.csv_generator import CSVGenerator
@@ -16,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', '-i', required=True, help='Input file (log, CSV, JSON)')
     parser.add_argument('--output', '-o', default='risk_register.csv', help='Output CSV path')
-    parser.add_argument('--model', choices=['distilroberta', 'gpt4o_mini'], default='distilroberta')
+    parser.add_argument('--model', choices=['distilroberta', 'smolLM2'], default='distilroberta')
     args = parser.parse_args()
     
     # Load configuration
@@ -28,9 +33,8 @@ def main():
     # Choose extractor
     if args.model == 'distilroberta':
         extractor = DistilRoBERTaExtractor()
-    else:
-        logger.error("GPT extractor not fully implemented. Install openai and set API key. Falling back to DistilRoBERTa.")
-        extractor = DistilRoBERTaExtractor()
+    elif args.model == 'smolLM2':
+        extractor = SmolLM2Extractor()
     
     # Other components
     risk_scorer = RiskScorer(config)
