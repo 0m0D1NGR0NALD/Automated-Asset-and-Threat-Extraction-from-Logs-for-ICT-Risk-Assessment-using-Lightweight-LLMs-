@@ -4,3 +4,5 @@ python -m src.main --model distilroberta -i data/datasets/csic_database_sample.t
 
 python evaluate_model.py --risk_csv distilroberta_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
 python evaluate_model.py --risk_csv smolLM2_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv
+
+python compare_models.py --distilroberta distilroberta_risk_register_sample.csv --smolLM2 smolLM2_risk_register_sample.csv --ground_truth data/datasets/ground_truth_sample.csv --output comparison_report.txt

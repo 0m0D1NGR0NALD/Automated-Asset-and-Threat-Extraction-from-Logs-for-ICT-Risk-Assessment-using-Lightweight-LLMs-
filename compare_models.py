@@ -78,11 +78,6 @@ def main():
             diff = sm_metrics[k] - dr_metrics[k]
             report_lines.append(f"  {k.capitalize()}: {diff:+.3f}")
 
-    report_lines.append("\nInterpretation:")
-    report_lines.append("  SmolLM2 is a fine‑tuned security model and significantly outperforms zero‑shot DistilRoBERTa.")
-    report_lines.append("  All predictions from SmolLM2 have high confidence (≥0.9) for the normal/anomalous distinction.")
-    report_lines.append("  DistilRoBERTa’s low confidence forces human review for every entry, making it impractical.")
-
     # Print to console
     for line in report_lines:
         print(line)
