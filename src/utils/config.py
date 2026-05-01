@@ -18,6 +18,3 @@ class Config:
             else:
                 return default
         return value
-    
-    def get_openai_key(self):
-        return os.getenv("OPENAI_API_KEY")

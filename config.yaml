@@ -1,12 +1,9 @@
-model:
-  backend: "distilroberta"   # or "gpt4o_mini"
-  confidence_threshold: 0.75
-
 asset_criticality:
   public_web_server: 5
   internal_database: 4
   developer_workstation: 3
   test_environment: 2
+  IoT_device: 3
   unknown: 3
 
 likelihood_matrix:
@@ -16,8 +13,9 @@ likelihood_matrix:
   dos: 2
   brute_force: 3
   privilege_escalation: 4
-  malicious_file: 3
+  command_and_control: 4
   info_leak: 2
+  port_scan: 2
 
 risk_levels:
   - name: Low
@@ -32,6 +30,3 @@ risk_levels:
   - name: Critical
     min: 21
     max: 25
-
-input:
-  supported_formats: [".log", ".txt", ".json", ".csv"]

@@ -11,6 +11,16 @@ Manual ICT risk assessment is often slow, subjective, and hard to scale because 
   
 The tool is designed as a decision support system to accelerate initial risk assessment but does not replace expert judgment.
 
+## **Features**
+
+- **Hybrid parsing** – regex pre‑cleaning + LLM extraction (reduces noise and tokens)
+- **Multiple lightweight LLM backends** – SmolLM2‑360M (security‑fine‑tuned), Qwen2.5‑3B, TinyLlama‑1.1B
+- **Uniform JSON output** – all models produce `{"asset": "...", "threat": "...", "confidence": 0.xx}`
+- **Configurable risk matrix** – asset criticality, likelihood per threat type (YAML)
+- **Confidence filtering** – flags low‑confidence extractions for manual review (mitigates hallucinations)
+- **Standardised output** – CSV risk register with `requires_review` column
+- **Fair model comparison** – evaluation scripts using the same test set and metrics
+
 ## **Foundational Literature**
 
 1. Jeong H, Joe I. "An AI-Based Risk Analysis Framework Using Large Language Models for Web Log Security." Electronics 2025, 14, 3512. https://doi.org/10.3390/electronics14173512
@@ -22,3 +32,5 @@ The tool is designed as a decision support system to accelerate initial risk ass
 4. Karlsen, E., Luo, X., Zincir-Heywood, N. et al. "Benchmarking Large Language Models for Log Analysis, Security, and Interpretation." J Netw Syst Manage 32, 59 (2024). https://doi.org/10.1007/s10922-024-09831-x
 
 5. Shetaia, Amir, and Sean Kauffman. "DeepParse: Hybrid Log Parsing with LLM-Synthesized Regex Masks." arXiv preprint arXiv:2604.20553 (2026).
+
+
