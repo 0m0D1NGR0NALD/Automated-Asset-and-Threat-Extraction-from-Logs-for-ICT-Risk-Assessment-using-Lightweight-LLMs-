@@ -8,7 +8,6 @@ from src.utils.config import Config
 from src.utils.logger import setup_logger
 from src.parser.input_reader import InputReader
 from src.parser.log_preprocessor import LogPreprocessor
-from src.extractor.distilroberta_extractor import DistilRoBERTaExtractor
 from src.extractor.smolLM2_extractor import SmolLM2Extractor
 from src.extractor.qwen_extractor import QwenExtractor
 from src.extractor.tinyllama_extractor import TinyLlamaExtractor
@@ -23,7 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', '-i', required=True, help='Input file (log, CSV, JSON)')
     parser.add_argument('--output', '-o', default='risk_register.csv', help='Output CSV path')
-    parser.add_argument('--model', choices=['distilroberta', 'smolLM2', 'qwen', 'tinyllama'], default='smolLM2')
+    parser.add_argument('--model', choices=['smolLM2', 'qwen', 'tinyllama'], default='smolLM2')
     args = parser.parse_args()
     
     # Load configuration
@@ -32,9 +31,7 @@ def main():
         logger.warning(f"Overriding model backend to {args.model}")
     
     # Choose extractor
-    if args.model == 'distilroberta':
-        extractor = DistilRoBERTaExtractor()
-    elif args.model == 'smolLM2':
+    if args.model == 'smolLM2':
         extractor = SmolLM2Extractor()
     elif args.model == 'qwen':
         extractor = QwenExtractor()

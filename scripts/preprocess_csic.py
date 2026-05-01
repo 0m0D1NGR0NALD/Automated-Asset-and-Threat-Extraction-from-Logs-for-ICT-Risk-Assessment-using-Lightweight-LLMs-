@@ -19,8 +19,8 @@ def main():
     )
     parser.add_argument(
         "-o", "--output",
-        default="data/datasets/csic_requests.txt",
-        help="Path to output text file (default: data/datasets/csic_requests.txt)"
+        default="data/datasets/csic_database.txt",
+        help="Path to output text file (default: data/datasets/csic_database.txt)"
     )
     args = parser.parse_args()
 
