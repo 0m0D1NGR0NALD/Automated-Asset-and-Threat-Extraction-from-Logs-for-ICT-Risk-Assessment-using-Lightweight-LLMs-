@@ -1,75 +1,57 @@
 import argparse
 import pandas as pd
-from sklearn.metrics import precision_recall_fscore_support, accuracy_score, mean_absolute_error
-import re
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, precision_recall_fscore_support
 
-def normalize_text(text: str) -> str:
-    """Normalize raw log for matching."""
-    # Remove timestamp-like prefixes if any
-    # Keep only the request line
-    return text.strip()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--risk_csv', required=True, help='Risk register CSV from any model')
+    parser.add_argument('--ground_truth', required=True, help='Ground truth CSV with raw_log and true_classification')
+    parser.add_argument('--model_name', default='Model', help='Name for display')
+    args = parser.parse_args()
 
-def evaluate(risk_csv, ground_truth_csv):
-    risk_df = pd.read_csv(risk_csv)
-    gt_df = pd.read_csv(ground_truth_csv)
+    # Load ground truth
+    gt_df = pd.read_csv(args.ground_truth)
+    # Create a mapping from raw log preview to label
+    gt_df['preview'] = gt_df['raw_log'].apply(lambda x: x[:100])
+    gt_map = dict(zip(gt_df['preview'], gt_df['true_classification']))
 
-    # Create a mapping from normalized raw log to ground truth
-    gt_map = {}
-    for _, row in gt_df.iterrows():
-        norm = normalize_text(row['raw_log'])
-        gt_map[norm] = (row['true_classification'], row['true_threat'])
+    # Load risk register
+    risk_df = pd.read_csv(args.risk_csv)
 
-    y_true_class = []
-    y_pred_class = []
-    y_true_risk = []   # optional
-    y_pred_risk = []
+    # Align predictions with ground truth
+    y_true = []
+    y_pred = []
+    for _, row in risk_df.iterrows():
+        preview = row['raw_log_preview']
+        if preview not in gt_map:
+            continue
+        true_label = gt_map[preview]
+        # Map model's threat output to binary: anomalous if threat not in benign/info_leak
+        threat = row['extracted_threat'].lower()
+        if threat in ['benign', 'info_leak', 'normal']:
+            pred_binary = 0
+        else:
+            pred_binary = 1
+        y_true.append(1 if true_label == 'anomalous' else 0)
+        y_pred.append(pred_binary)
 
-    for _, risk_row in risk_df.iterrows():
-        raw_preview = risk_row['raw_log_preview']
-        # Find best match in ground truth (partial match because preview is truncated)
-        matched = None
-        for gt_log in gt_map.keys():
-            if raw_preview in gt_log or gt_log in raw_preview:
-                matched = gt_map[gt_log]
-                break
-        if not matched:
-            continue   # skip if no match found (should not happen for the sample)
-
-        true_class, true_threat = matched
-        pred_threat = risk_row['extracted_threat']
-
-        # Convert to binary: attack vs benign
-        true_binary = 1 if true_class == 'anomalous' else 0
-        pred_binary = 1 if pred_threat != 'benign' and pred_threat != 'info_leak' else 0
-        # Note: info_leak is considered benign for CSIC normal requests
-
-        y_true_class.append(true_binary)
-        y_pred_class.append(pred_binary)
-
-        # Risk scores if we have true risk values (not available in simple ground truth)
-        # We'll skip MAE unless you provide a column 'true_risk_score'
-
-    if not y_true_class:
-        print("No matching entries found. Check the raw_log_preview matching.")
+    if not y_true:
+        print("No matching entries found. Check raw_log_preview alignment.")
         return
 
-    prec, rec, f1, _ = precision_recall_fscore_support(y_true_class, y_pred_class, average='binary')
-    acc = accuracy_score(y_true_class, y_pred_class)
+    # Compute metrics
+    acc = accuracy_score(y_true, y_pred)
+    prec, rec, f1, _ = precision_recall_fscore_support(y_true, y_pred, average='binary')
 
-    print(f"\n=== Evaluation for {risk_csv} ===")
+    print(f"\n=== {args.model_name} Evaluation ===")
     print(f"Accuracy:  {acc:.3f}")
     print(f"Precision: {prec:.3f}")
     print(f"Recall:    {rec:.3f}")
     print(f"F1-score:  {f1:.3f}")
-
-    # Optional: write confusion matrix
-    from sklearn.metrics import confusion_matrix
-    tn, fp, fn, tp = confusion_matrix(y_true_class, y_pred_class).ravel()
-    print(f"Confusion Matrix: TN={tn}, FP={fp}, FN={fn}, TP={tp}")
+    print("\nConfusion Matrix:")
+    print(confusion_matrix(y_true, y_pred))
+    print("\nClassification Report:")
+    print(classification_report(y_true, y_pred, target_names=['normal', 'anomalous']))
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--risk_csv', required=True, help='Risk register CSV from model')
-    parser.add_argument('--ground_truth', required=True, help='Ground truth CSV (raw_log, true_classification, true_threat)')
-    args = parser.parse_args()
-    evaluate(args.risk_csv, args.ground_truth)
+    main()
