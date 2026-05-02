@@ -1,5 +1,7 @@
 transformers
 torch
+accelerate
+bitsandbytes
 scikit-learn
 pyyaml
 pandas

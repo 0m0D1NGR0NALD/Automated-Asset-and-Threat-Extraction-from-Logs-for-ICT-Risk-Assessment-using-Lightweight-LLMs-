@@ -14,12 +14,80 @@ The tool is designed as a decision support system to accelerate initial risk ass
 ## **Features**
 
 - **Hybrid parsing** – regex pre‑cleaning + LLM extraction (reduces noise and tokens)
-- **Multiple lightweight LLM backends** – SmolLM2‑360M (security‑fine‑tuned), Qwen2.5‑3B, TinyLlama‑1.1B
+- **Multiple lightweight LLM backends** – SmolLM2‑360M, Qwen2.5‑3B, TinyLlama‑1.1B
 - **Uniform JSON output** – all models produce `{"asset": "...", "threat": "...", "confidence": 0.xx}`
 - **Configurable risk matrix** – asset criticality, likelihood per threat type (YAML)
 - **Confidence filtering** – flags low‑confidence extractions for manual review (mitigates hallucinations)
 - **Standardised output** – CSV risk register with `requires_review` column
 - **Fair model comparison** – evaluation scripts using the same test set and metrics
+
+## **Installation**
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/0m0D1NGR0NALD/Automated-Asset-and-Threat-Extraction-from-Logs-for-ICT-Risk-Assessment-using-Lightweight-LLMs-.git
+cd Automated-Asset-and-Threat-Extraction-from-Logs-for-ICT-Risk-Assessment-using-Lightweight-LLMs-
+```
+
+### 2. Set up a virtual environment
+```bash
+python -m venv ictra
+source ictra/bin/activate # Linux/macOS
+ictra\Scripts\activate # Windows
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## **Usage**
+
+### Preprocess CSIC 2010 dataset (optional)
+```bash
+python scripts/preprocess_csic.py -i data/datasets/csic_database_sample.csv -o data/datasets/csic_database_sample.txt
+```
+
+### Running Individual Models
+```bash
+# SmolLM2-360M
+python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o smolLM2_results.csv
+
+# Qwen2.5-3B (requires GPU with 4‑bit quantisation)
+python -m src.main --model qwen -i data/datasets/csic_database_sample.txt -o qwen_results.csv
+
+# TinyLlama-1.1B (runs on CPU)
+python -m src.main --model tinyllama -i data/datasets/csic_database_sample.txt -o tinyllama_results.csv
+```
+
+### Batch Execution
+Run all three models sequentially and generate a comparison report.
+
+#### Windows PowerShell:
+```bash
+.\run_all_models.ps1
+```
+
+#### Linux / Mac:
+```bash
+chmod +x ./run_all_models.sh
+./run_all_models.sh
+```
+
+### Model Comparison & Evaluation
+Unified evaluation scripts to compare models fairly on the same data.
+
+#### Prepare ground truth labels
+```bash
+python scripts/auto_label_csic.py
+python scripts/preprocess_csic.py
+```
+
+#### Evaluate a single model
+```bash
+python experiments/evaluate_model_uniform.py --risk_csv results/smolLM2_results.csv --ground_truth data/datasets/ground_truth.csv --model_name SmolLM2
+```
 
 ## **Foundational Literature**
 
