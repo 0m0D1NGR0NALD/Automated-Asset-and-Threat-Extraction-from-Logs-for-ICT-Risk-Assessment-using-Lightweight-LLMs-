@@ -64,22 +64,44 @@ Log: {truncated}
         return prompt
 
     def _parse_response(self, raw_output: str) -> Dict[str, Any]:
-        # Remove possible extra spaces or newlines
+        """Extract the first valid JSON object from the model's output."""
         raw_output = raw_output.strip()
-        json_match = re.search(r'\{.*\}', raw_output, re.DOTALL)
-        if json_match:
-            try:
-                data = json.loads(json_match.group(0))
-                if "asset" in data and "threat" in data and "confidence" in data:
-                    data["confidence"] = max(0.0, min(1.0, float(data["confidence"])))
-                    return data
-                else:
-                    logger.warning(f"Missing keys in JSON: {data}")
-            except json.JSONDecodeError as e:
-                logger.warning(f"JSON decode error: {e}\nRaw: {raw_output[:200]}")
-        else:
-            logger.warning(f"No JSON found: {raw_output[:200]}")
-
+        
+        # Find the first '{' and then match until the closing '}' at the same level
+        # This handles multiple JSON objects by taking only the first one
+        start = raw_output.find('{')
+        if start == -1:
+            logger.warning(f"No JSON object found in output: {raw_output[:200]}")
+            return {"asset": "unknown", "threat": "unknown", "confidence": 0.3}
+        
+        # Simple bracket counting to find the end of the first JSON object
+        brace_count = 0
+        end = start
+        for i, ch in enumerate(raw_output[start:], start):
+            if ch == '{':
+                brace_count += 1
+            elif ch == '}':
+                brace_count -= 1
+                if brace_count == 0:
+                    end = i
+                    break
+        
+        if end == start:
+            logger.warning(f"Could not find closing brace in output: {raw_output[:200]}")
+            return {"asset": "unknown", "threat": "unknown", "confidence": 0.3}
+        
+        json_str = raw_output[start:end+1]
+        try:
+            data = json.loads(json_str)
+            if isinstance(data, dict) and "asset" in data and "threat" in data and "confidence" in data:
+                data["confidence"] = max(0.0, min(1.0, float(data["confidence"])))
+                logger.debug(f"Parsed JSON: {data}")
+                return data
+            else:
+                logger.warning(f"Incomplete or invalid JSON structure: {data}")
+        except json.JSONDecodeError as e:
+            logger.warning(f"JSON decode error: {e}\nRaw fragment: {json_str[:200]}")
+        
         return {"asset": "unknown", "threat": "unknown", "confidence": 0.3}
 
     @torch.no_grad()
