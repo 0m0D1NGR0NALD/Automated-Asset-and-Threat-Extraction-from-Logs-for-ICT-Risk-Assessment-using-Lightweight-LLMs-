@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ## **Usage**
 
-### Preprocess CSIC 2010 dataset (optional)
+### Preprocess [CSIC 2010 dataset](https://www.kaggle.com/datasets/ispangler/csic-2010-web-application-attacks)
 ```bash
 python scripts/generate_ground_truth_from_csic_csv.py
 ```
@@ -82,8 +82,7 @@ chmod +x ./run_all_models.sh
 ```
 
 ### Model Comparison & Evaluation
-Unified evaluation scripts to compare LLMs on the same data sample.
-
+Evaluation scripts to compare LLMs on the same data sample.
 
 #### Evaluate a single model
 ```bash
