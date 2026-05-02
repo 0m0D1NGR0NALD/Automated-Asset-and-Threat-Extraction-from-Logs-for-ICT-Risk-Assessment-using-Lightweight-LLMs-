@@ -86,7 +86,12 @@ python scripts/preprocess_csic.py
 
 #### Evaluate a single model
 ```bash
-python experiments/evaluate_model_uniform.py --risk_csv results/smolLM2_results.csv --ground_truth data/datasets/ground_truth.csv --model_name SmolLM2
+python experiments/evaluate_model.py --risk_csv results/smolLM2_results.csv --ground_truth data/datasets/ground_truth.csv --model_name SmolLM2
+```
+
+####  Compare all models side‑by‑side
+```bash
+python experiments/compare_models.py --models SmolLM2:results/smolLM2_results.csv Qwen:results/qwen_results.csv TinyLlama:results/tinyllama_results.csv --ground_truth data/datasets/ground_truth_sample.csv --output comparison_report.txt
 ```
 
 ## **Foundational Literature**
