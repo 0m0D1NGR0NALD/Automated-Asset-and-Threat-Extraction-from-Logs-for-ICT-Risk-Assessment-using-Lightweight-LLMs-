@@ -1,6 +1,4 @@
-import csv
 import pandas as pd
-from pathlib import Path
 
 def main():
     input_csv = "data/datasets/csic_database.csv"
@@ -29,9 +27,9 @@ def main():
     normal = df[df['classification'] == 'Normal']
     anomalous = df[df['classification'] == 'Anomalous']
     
-    # Take 50 from each (or fewer if not enough)
-    n_normal = min(50, len(normal))
-    n_anomalous = min(50, len(anomalous))
+    # Take 500 from each
+    n_normal = min(500, len(normal))
+    n_anomalous = min(500, len(anomalous))
     sample_normal = normal.sample(n_normal, random_state=42)
     sample_anomalous = anomalous.sample(n_anomalous, random_state=42)
     

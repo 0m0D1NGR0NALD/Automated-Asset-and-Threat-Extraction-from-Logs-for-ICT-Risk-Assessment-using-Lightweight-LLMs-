@@ -46,9 +46,9 @@ pip install -r requirements.txt
 
 ### Preprocess CSIC 2010 dataset (optional)
 ```bash
-python scripts/create_ground_truth_from_csic_csv.py
+python scripts/generate_ground_truth_from_csic_csv.py
 ```
-Creates a balanced sample (100 normal + 100 anomalous) for running experiments. This is the output:
+Creates a balanced sample (500 normal + 500 anomalous) for running experiments. This is the output:
 
 ```data/datasets/ground_truth_sample.csv``` – contains two columns: raw_log (Method + URL + content), classification (Normal or Anomalous)
 
