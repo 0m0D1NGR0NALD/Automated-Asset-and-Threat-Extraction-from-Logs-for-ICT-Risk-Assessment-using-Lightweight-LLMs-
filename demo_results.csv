@@ -1,0 +1,11 @@
+timestamp,raw_log_preview,extracted_asset,extracted_threat,likelihood_score,impact_score,risk_score,confidence,requires_review,human_override
+2026-05-03T00:06:20.626413,GET http://localhost:8080/tienda1/index.jsp HTTP/1.1,public_web_server,benign,3,5,15,0.9,False,
+2026-05-03T00:06:35.253448,GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3&nombre=Vino+Rioja&precio=100&cantidad=55&B,public_web_server,info_leak,2,5,10,0.85,False,
+2026-05-03T00:06:49.418838,POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=3&nombre=Vino+Rioja&precio=100&can,public_web_server,dos,2,5,10,0.97,False,
+2026-05-03T00:07:04.171060,GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=choong&pwd=d1se3ci%F3n&re,public_web_server,brute_force,3,5,15,0.88,False,
+2026-05-03T00:07:18.248248,GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1,test_environment,benign,3,2,6,0.9,False,
+2026-05-03T00:07:32.330270,GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=%27+DELETE+FROM+USERS HTTP/1.1,public_web_server,dos,2,5,10,0.99,False,
+2026-05-03T00:07:46.725862,GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=%3Cscript%3Ealert%28%27XSS%27%29%3C%2F,public_web_server,xss,3,5,15,0.97,False,
+2026-05-03T00:08:01.216345,GET http://localhost:8080/tienda1/publico/../../../../etc/passwd HTTP/1.1,public_web_server,info_leak,2,5,10,0.99,False,
+2026-05-03T00:08:15.842290,GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3&nombre=Queso+Manchego&precio=39&cantidad=8,public_web_server,info_leak,2,5,10,0.97,False,
+2026-05-03T00:08:30.681917,GET http://localhost:8080/tienda1/publico/anadir.jsp?nombre=Queso%0D%0ASet-Cookie:%20Tamper=1 HTTP/1,public_web_server,info_leak,2,5,10,0.97,False,

@@ -54,7 +54,7 @@ class QwenExtractor(BaseExtractor):
 
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+            dtype=torch.float16 if self.device == "cuda" else torch.float32,
             trust_remote_code=True,
             **model_kwargs,
         )

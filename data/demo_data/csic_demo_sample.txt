@@ -1,0 +1,29 @@
+# NORMAL: GET home page
+GET http://localhost:8080/tienda1/index.jsp HTTP/1.1
+
+# NORMAL: GET product page with parameters
+GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3&nombre=Vino+Rioja&precio=100&cantidad=55&B1=A%F1adir+al+carrito HTTP/1.1
+
+# NORMAL: POST add to cart
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=3&nombre=Vino+Rioja&precio=100&cantidad=55&B1=A%F1adir+al+carrito
+
+# NORMAL: GET login form
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=choong&pwd=d1se3ci%F3n&remember=off&B1=Entrar HTTP/1.1
+
+# NORMAL: GET product listing
+GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
+
+# ANOMALOUS: SQL injection (DELETE statement)
+GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=%27+DELETE+FROM+USERS HTTP/1.1
+
+# ANOMALOUS: Cross‑site scripting (XSS) in errorMsg parameter
+GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=%3Cscript%3Ealert%28%27XSS%27%29%3C%2Fscript%3E HTTP/1.1
+
+# ANOMALOUS: Path traversal attempt
+GET http://localhost:8080/tienda1/publico/../../../../etc/passwd HTTP/1.1
+
+# ANOMALOUS: Parameter tampering (extra parameter injection)
+GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3&nombre=Queso+Manchego&precio=39&cantidad=82&extra=malicious HTTP/1.1
+
+# ANOMALOUS: CRLF / header injection via parameter
+GET http://localhost:8080/tienda1/publico/anadir.jsp?nombre=Queso%0D%0ASet-Cookie:%20Tamper=1 HTTP/1.1
