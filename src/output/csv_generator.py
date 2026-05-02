@@ -1,6 +1,4 @@
 import csv
-import pandas as pd
-from datetime import datetime
 
 class CSVGenerator:
     @staticmethod

@@ -1,6 +1,5 @@
 import torch
 import json
-import re
 import logging
 from typing import Dict, Any
 from transformers import AutoTokenizer, AutoModelForCausalLM
