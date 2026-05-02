@@ -52,13 +52,13 @@ python scripts/preprocess_csic.py -i data/datasets/csic_database_sample.csv -o d
 ### Running Individual Models
 ```bash
 # SmolLM2-360M
-python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o smolLM2_results.csv
+python -m src.main --model smolLM2 -i data/datasets/csic_database_sample.txt -o results/smolLM2_results.csv
 
 # Qwen2.5-3B (requires GPU with 4‑bit quantisation)
-python -m src.main --model qwen -i data/datasets/csic_database_sample.txt -o qwen_results.csv
+python -m src.main --model qwen -i data/datasets/csic_database_sample.txt -o results/qwen_results.csv
 
 # TinyLlama-1.1B (runs on CPU)
-python -m src.main --model tinyllama -i data/datasets/csic_database_sample.txt -o tinyllama_results.csv
+python -m src.main --model tinyllama -i data/datasets/csic_database_sample.txt -o results/tinyllama_results.csv
 ```
 
 ### Batch Execution
@@ -86,7 +86,7 @@ python scripts/preprocess_csic.py
 
 #### Evaluate a single model
 ```bash
-python experiments/evaluate_model.py --risk_csv results/smolLM2_results.csv --ground_truth data/datasets/ground_truth.csv --model_name SmolLM2
+python experiments/evaluate_model.py --risk_csv results/smolLM2_results.csv --ground_truth data/datasets/ground_truth_sample.csv --model_name SmolLM2
 ```
 
 ####  Compare all models side‑by‑side
@@ -105,5 +105,3 @@ python experiments/compare_models.py --models SmolLM2:results/smolLM2_results.cs
 4. Karlsen, E., Luo, X., Zincir-Heywood, N. et al. "Benchmarking Large Language Models for Log Analysis, Security, and Interpretation." J Netw Syst Manage 32, 59 (2024). https://doi.org/10.1007/s10922-024-09831-x
 
 5. Shetaia, Amir, and Sean Kauffman. "DeepParse: Hybrid Log Parsing with LLM-Synthesized Regex Masks." arXiv preprint arXiv:2604.20553 (2026).
-
-
