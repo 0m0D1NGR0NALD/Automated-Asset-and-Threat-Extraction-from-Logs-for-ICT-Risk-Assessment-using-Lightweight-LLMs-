@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--input', '-i', required=True, help='Input file (log, CSV, JSON)')
     parser.add_argument('--output', '-o', default='risk_register.csv', help='Output CSV path')
     parser.add_argument('--model', choices=['smolLM2', 'qwen', 'tinyllama'], default='smolLM2')
+    parser.add_argument('--few-shot', action='store_true', help='Enable few-shot prompting')
     args = parser.parse_args()
     
     # Load configuration
@@ -32,11 +33,11 @@ def main():
     
     # Choose extractor
     if args.model == 'smolLM2':
-        extractor = SmolLM2Extractor()
+        extractor = SmolLM2Extractor(few_shot=args.few_shot)
     elif args.model == 'qwen':
-        extractor = QwenExtractor()
+        extractor = QwenExtractor(few_shot=args.few_shot)
     elif args.model == 'tinyllama':
-        extractor = TinyLlamaExtractor()
+        extractor = TinyLlamaExtractor(few_shot=args.few_shot)
     
     # Risk assessment components
     risk_scorer = RiskScorer(config)
