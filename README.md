@@ -82,7 +82,7 @@ chmod +x ./run_all_models.sh
 ```
 
 ### Model Comparison & Evaluation
-Unified evaluation scripts to compare models fairly on the same data.
+Unified evaluation scripts to compare LLMs on the same data sample.
 
 
 #### Evaluate a single model
