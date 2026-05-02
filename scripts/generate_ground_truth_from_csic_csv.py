@@ -29,9 +29,9 @@ def main():
     normal = df[df['classification'] == 'Normal']
     anomalous = df[df['classification'] == 'Anomalous']
     
-    # Take 100 from each (or fewer if not enough)
-    n_normal = min(100, len(normal))
-    n_anomalous = min(100, len(anomalous))
+    # Take 50 from each (or fewer if not enough)
+    n_normal = min(50, len(normal))
+    n_anomalous = min(50, len(anomalous))
     sample_normal = normal.sample(n_normal, random_state=42)
     sample_anomalous = anomalous.sample(n_anomalous, random_state=42)
     

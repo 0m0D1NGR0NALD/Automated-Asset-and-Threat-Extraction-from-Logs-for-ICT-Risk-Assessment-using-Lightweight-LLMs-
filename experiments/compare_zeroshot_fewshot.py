@@ -38,7 +38,7 @@ def main():
     print("\n" + "="*70)
     print("Zero‑Shot vs Few‑Shot Performance Comparison")
     print("="*70)
-    print(f"{'Model':<12} {'Setting':<12} {'Acc':<6} {'Prec':<6} {'Rec':<6} {'F1':<6}")
+    print(f"{'Model':<12} {'Technique':<12} {'Acc':<6} {'Prec':<6} {'Rec':<6} {'F1':<6}")
     print("-"*70)
 
     for model in zero_shot_files.keys():

