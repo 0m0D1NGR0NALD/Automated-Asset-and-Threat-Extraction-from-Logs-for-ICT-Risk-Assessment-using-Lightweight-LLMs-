@@ -32,7 +32,7 @@ def main():
             pred_binary = 0
         else:
             pred_binary = 1
-        y_true.append(1 if true_label == 'anomalous' else 0)
+        y_true.append(1 if true_label == 'Anomalous' else 0)
         y_pred.append(pred_binary)
 
     if not y_true:
