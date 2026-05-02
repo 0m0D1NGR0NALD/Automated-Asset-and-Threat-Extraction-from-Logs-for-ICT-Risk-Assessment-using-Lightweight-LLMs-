@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 def compute_metrics_for_model(risk_csv, ground_truth_csv):
     gt_df = pd.read_csv(ground_truth_csv)
     gt_df['preview'] = gt_df['raw_log'].apply(lambda x: x[:100])
-    gt_map = dict(zip(gt_df['preview'], gt_df['true_classification']))
+    gt_map = dict(zip(gt_df['preview'], gt_df['classification']))
 
     risk_df = pd.read_csv(risk_csv)
 

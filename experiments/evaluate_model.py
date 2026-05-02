@@ -5,7 +5,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--risk_csv', required=True, help='Risk register CSV from any model')
-    parser.add_argument('--ground_truth', required=True, help='Ground truth CSV with raw_log and true_classification')
+    parser.add_argument('--ground_truth', required=True, help='Ground truth CSV with raw_log and classification')
     parser.add_argument('--model_name', default='Model', help='Name for display')
     args = parser.parse_args()
 
@@ -13,7 +13,7 @@ def main():
     gt_df = pd.read_csv(args.ground_truth)
     # Create a mapping from raw log preview to label
     gt_df['preview'] = gt_df['raw_log'].apply(lambda x: x[:100])
-    gt_map = dict(zip(gt_df['preview'], gt_df['true_classification']))
+    gt_map = dict(zip(gt_df['preview'], gt_df['classification']))
 
     # Load risk register
     risk_df = pd.read_csv(args.risk_csv)
