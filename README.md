@@ -15,11 +15,11 @@ The tool is designed as a decision support system to accelerate initial risk ass
 
 - **Hybrid parsing** – regex pre‑cleaning + LLM extraction (reduces noise and tokens)
 - **Multiple lightweight LLM backends** – SmolLM2‑360M, Qwen2.5‑3B, TinyLlama‑1.1B
-- **Uniform JSON output** – all models produce `{"asset": "...", "threat": "...", "confidence": 0.xx}`
+- **Uniform JSON output** – all models produce `{"asset": "...", "threat": "...", "confidence": "..."}`
 - **Configurable risk matrix** – asset criticality, likelihood per threat type (YAML)
 - **Confidence filtering** – flags low‑confidence extractions for manual review (mitigates hallucinations)
 - **Standardised output** – CSV risk register with `requires_review` column
-- **Fair model comparison** – evaluation scripts using the same test set and metrics
+- **Multi-model comparison** – evaluation scripts using the same test set and metrics
 
 ## **Installation**
 
@@ -46,8 +46,14 @@ pip install -r requirements.txt
 
 ### Preprocess CSIC 2010 dataset (optional)
 ```bash
-python scripts/preprocess_csic.py -i data/datasets/csic_database_sample.csv -o data/datasets/csic_database_sample.txt
+python scripts/create_ground_truth_from_csic_csv.py
 ```
+Creates a balanced sample (100 normal + 100 anomalous) for running experiments. This is the output:
+
+```data/datasets/ground_truth_sample.csv``` – contains two columns: raw_log (Method + URL + content), classification (Normal or Anomalous)
+
+```data/datasets/csic_database_sample.txt``` – the raw_log (Method + URL + content) for the LLM to process
+
 
 ### Running Individual Models
 ```bash
@@ -78,11 +84,6 @@ chmod +x ./run_all_models.sh
 ### Model Comparison & Evaluation
 Unified evaluation scripts to compare models fairly on the same data.
 
-#### Prepare ground truth labels
-```bash
-python scripts/auto_label_csic.py
-python scripts/preprocess_csic.py
-```
 
 #### Evaluate a single model
 ```bash
