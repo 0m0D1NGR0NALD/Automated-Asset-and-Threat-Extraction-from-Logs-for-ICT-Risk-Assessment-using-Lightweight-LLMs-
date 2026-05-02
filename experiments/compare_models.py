@@ -37,7 +37,7 @@ def main():
     parser.add_argument('--models', nargs='+', required=True,
                         help='List of model names and CSV paths in format name:path (e.g., SmolLM2:smol_results.csv)')
     parser.add_argument('--ground_truth', required=True)
-    parser.add_argument('--output', default='comparison_report.txt')
+    parser.add_argument('--output', default='results/comparison_report.txt')
     args = parser.parse_args()
 
     # Parse model spec
