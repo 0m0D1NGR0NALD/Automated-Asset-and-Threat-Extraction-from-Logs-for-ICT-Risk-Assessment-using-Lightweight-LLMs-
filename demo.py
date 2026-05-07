@@ -51,7 +51,7 @@ def main():
         "-o", output_file
     ]
     print(f"Running: {' '.join(cmd)}")
-    print("\nProcessing logs... (ETA shown below)\n")
+    print("\nPreparing Model...\n")
 
     start_time = time.time()
     processed = 0
@@ -82,7 +82,7 @@ def main():
                 avg_time = elapsed / processed
                 eta_seconds = avg_time * (total - processed)
                 eta_minutes = eta_seconds / 60
-                print(f"  >>> Progress: {processed}/{total} | ETA: {eta_minutes:.1f} min", flush=True)
+                print(f"Processing logs...")
 
     # Wait for the process to finish
     return_code = process.wait()
