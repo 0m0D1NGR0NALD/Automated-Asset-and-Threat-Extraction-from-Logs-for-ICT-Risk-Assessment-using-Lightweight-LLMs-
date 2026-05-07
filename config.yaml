@@ -3,19 +3,18 @@ asset_criticality:
   internal_database: 4
   developer_workstation: 3
   test_environment: 2
-  IoT_device: 3
   unknown: 3
 
 likelihood_matrix:
-  default: 3
+  default: 3 
   sql_injection: 4
   xss: 3
+  path_traversal: 3
   dos: 2
   brute_force: 3
   privilege_escalation: 4
-  command_and_control: 4
   info_leak: 2
-  port_scan: 2
+  benign: 0
 
 risk_levels:
   - name: Low
