@@ -99,6 +99,12 @@ python experiments/compare_models.py --models SmolLM2:results/smolLM2_results.cs
 python demo.py data/demo_data/csic_demo_sample.txt results/demo_results.csv
 ```
 
+#### Launch the Web App
+A user-friendly web interface built with Gradio, allowing you to run risk assessments without command-line interaction.
+```bash
+python app.py
+```
+
 ## **Foundational Literature**
 
 1. Jeong H, Joe I. "An AI-Based Risk Analysis Framework Using Large Language Models for Web Log Security." Electronics 2025, 14, 3512. https://doi.org/10.3390/electronics14173512
