@@ -1,4 +1,4 @@
-# app.py - Gradio web app for ICT Risk Assessment Tool
+# Gradio web app for ICT Risk Assessment Tool
 import gradio as gr
 import pandas as pd
 import tempfile
