@@ -78,9 +78,6 @@ def main():
             'human_override': ''
         }
         output_entries.append(out_row)
-        
-        if idx % 10 == 0:
-            logger.info(f"Processed {idx+1}/{len(raw_entries)}")
     
     CSVGenerator.generate(output_entries, args.output)
     logger.info("Done.")
