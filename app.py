@@ -8,6 +8,9 @@ import os
 from pathlib import Path
 import gc
 import torch
+import psutil
+import weakref
+from functools import lru_cache
 
 # Suppress symlink warning
 os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
@@ -37,6 +40,66 @@ EXTRACTORS = {
     "TinyLlama-1.1B": TinyLlamaExtractor
 }
 
+# Cache for model instances to avoid reloading
+_model_cache = {}
+_model_cache_lock = False
+
+def get_or_create_extractor(model_name, few_shot):
+    """Get cached extractor or create new one with memory management."""
+    global _model_cache_lock
+    
+    cache_key = f"{model_name}_{few_shot}"
+    
+    # Clean up dead references
+    for key in list(_model_cache.keys()):
+        if _model_cache[key]() is None:
+            del _model_cache[key]
+    
+    # Return cached if exists
+    if cache_key in _model_cache:
+        extractor = _model_cache[cache_key]()
+        if extractor is not None:
+            return extractor
+    
+    # Load new model
+    try:
+        extractor_class = EXTRACTORS.get(model_name, SmolLM2Extractor)
+        
+        # Clear GPU cache before loading new model
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+        
+        # Force garbage collection
+        gc.collect()
+        
+        extractor = extractor_class(few_shot=few_shot)
+        
+        # Store as weak reference
+        _model_cache[cache_key] = weakref.ref(extractor)
+        
+        # Limit cache size
+        if len(_model_cache) > 2:
+            oldest_key = next(iter(_model_cache))
+            if _model_cache[oldest_key]() is not None:
+                del _model_cache[oldest_key]
+            gc.collect()
+        
+        return extractor
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        # Return a mock extractor for the error case
+        return None
+
+def log_memory_usage():
+    """Log current memory usage for debugging."""
+    process = psutil.Process(os.getpid())
+    memory_mb = process.memory_info().rss / 1024 / 1024
+    print(f"Memory usage: {memory_mb:.2f} MB")
+    
+    if torch.cuda.is_available():
+        print(f"GPU memory: {torch.cuda.memory_allocated() / 1024**2:.2f} MB")
+
 def filter_comments(log_content):
     """Remove lines that start with '#' (comments)."""
     if not log_content or not log_content.strip():
@@ -53,8 +116,8 @@ def filter_comments(log_content):
     
     return '\n'.join(clean_lines), None
 
-def process_logs(logs, model_name, few_shot, confidence_threshold):
-    """Process logs directly using the selected extractor."""
+def process_logs(logs, model_name, few_shot, confidence_threshold, batch_size=5):
+    """Process logs directly using the selected extractor with batching."""
     if not logs or not logs.strip():
         return pd.DataFrame(), "No input provided."
     
@@ -69,14 +132,21 @@ def process_logs(logs, model_name, few_shot, confidence_threshold):
     if not lines:
         return pd.DataFrame(), "No valid log lines."
     
+    log_memory_usage()
+    
     # Fix for torch.float8_e8m0fnu attribute error
     if not hasattr(torch, 'float8_e8m0fnu'):
         torch.float8_e8m0fnu = None
     
     try:
-        extractor_class = EXTRACTORS.get(model_name, SmolLM2Extractor)
-        extractor = extractor_class(few_shot=few_shot)
+        # Get cached extractor
+        extractor = get_or_create_extractor(model_name, few_shot)
+        if extractor is None:
+            return pd.DataFrame(), f"Error: Could not load model {model_name}"
     except Exception as e:
+        # Check for the specific parameter error
+        if '_is_hf_initialized' in str(e):
+            return pd.DataFrame(), "Model compatibility error. Please update transformers: pip install --upgrade transformers"
         return pd.DataFrame(), f"Error loading model: {str(e)}"
     
     risk_scorer = RiskScorer(config)
@@ -84,39 +154,53 @@ def process_logs(logs, model_name, few_shot, confidence_threshold):
     
     results = []
     
-    for idx, line in enumerate(lines):
-        try:
-            cleaned, timestamp, ip = LogPreprocessor.clean_line(line)
-            if not cleaned:
-                continue
-            
-            extraction = extractor.extract(cleaned)
-            asset = extraction.get('asset', 'unknown')
-            threat = extraction.get('threat', 'unknown')
-            confidence = extraction.get('confidence', 0.5)
-            
-            likelihood, impact, risk = risk_scorer.compute_risk(asset, threat)
-            requires_review = confidence_filter.requires_review(confidence)
-            
-            results.append({
-                'Log': line[:80] + ('...' if len(line) > 80 else ''),
-                'Asset': asset,
-                'Threat': threat,
-                'Risk': risk,
-                'Confidence': round(confidence, 3),
-                'Review': 'Yes' if requires_review else 'No'
-            })
-        except Exception as e:
-            results.append({
-                'Log': line[:80],
-                'Asset': 'error',
-                'Threat': str(e)[:40],
-                'Risk': 0,
-                'Confidence': 0.0,
-                'Review': 'Yes'
-            })
-
+    # Process in batches to reduce memory pressure
+    for batch_start in range(0, len(lines), batch_size):
+        batch_lines = lines[batch_start:batch_start + batch_size]
+        
+        for idx, line in enumerate(batch_lines):
+            try:
+                cleaned, timestamp, ip = LogPreprocessor.clean_line(line)
+                if not cleaned:
+                    continue
+                
+                extraction = extractor.extract(cleaned)
+                asset = extraction.get('asset', 'unknown')
+                threat = extraction.get('threat', 'unknown')
+                confidence = extraction.get('confidence', 0.5)
+                
+                likelihood, impact, risk = risk_scorer.compute_risk(asset, threat)
+                requires_review = confidence_filter.requires_review(confidence)
+                
+                results.append({
+                    'Log': line[:80] + ('...' if len(line) > 80 else ''),
+                    'Asset': asset,
+                    'Threat': threat,
+                    'Risk': risk,
+                    'Confidence': round(confidence, 3),
+                    'Review': 'Yes' if requires_review else 'No'
+                })
+            except Exception as e:
+                results.append({
+                    'Log': line[:80],
+                    'Asset': 'error',
+                    'Threat': str(e)[:40],
+                    'Risk': 0,
+                    'Confidence': 0.0,
+                    'Review': 'Yes'
+                })
+        
+        # Clear batch memory
+        del batch_lines
+        gc.collect()
+    
+    # Don't delete the extractor immediately - keep in cache
+    # Just clean up temporary data
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    
     gc.collect()
+    log_memory_usage()
 
     if not results:
         return pd.DataFrame(), "No valid logs processed."
@@ -147,6 +231,15 @@ def read_file(file):
         return ""
     with open(file.name, 'r', encoding='utf-8') as f:
         return f.read()
+
+def clear_models():
+    """Explicitly clear model cache."""
+    global _model_cache
+    _model_cache.clear()
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    return pd.DataFrame(), "_Ready to process logs..._", gr.update(visible=False)
 
 # Create Gradio interface
 with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo:
@@ -214,7 +307,9 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
                         step=0.05
                     )
             
-            run_btn = gr.Button("Run Assessment", variant="primary", size="lg")
+            with gr.Row():
+                run_btn = gr.Button("Run Assessment", variant="primary", size="lg")
+                clear_cache_btn = gr.Button("Clear Model Cache", variant="secondary", size="lg")
         
         # Right column - Results
         with gr.Column(scale=7):
@@ -223,7 +318,8 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
             output_table = gr.Dataframe(
                 label="Risk Register",
                 wrap=True,
-                interactive=False
+                interactive=False,
+                max_rows=50  # Limit visible rows to reduce memory
             )
             
             with gr.Row():
@@ -253,8 +349,13 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
         outputs=[output_table, output_summary, download_btn]
     )
     
+    clear_cache_btn.click(
+        clear_models,
+        outputs=[output_table, output_summary, download_btn]
+    )
+    
     # Help section (collapsible)
-    with gr.Accordion("ℹDocumentation", open=False):
+    with gr.Accordion("ℹ Documentation & Tips", open=False):
         gr.Markdown("""
         ### Input Format
         Each line should contain one complete HTTP request:
@@ -262,7 +363,7 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
             GET http://localhost:8080/index.jsp HTTP/1.1
             POST http://localhost:8080/login.jsp user=admin&pwd=12345
                     
-        ### Samples
+        ### Attack Examples
                     
             {
             "raw": "POST http://localhost:8080/login.jsp user=admin' OR '1'='1&pwd=anything",
@@ -293,11 +394,22 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
         | Critical | 21–25 |
 
         ### Models
-        | Model | Speed | Hardware |
-        |-------|-------|----------|
-        | SmolLM2-360M | Fast | CPU (~2GB) |
-        | Qwen2.5-3B | Slow | GPU (~6GB) |
-        | TinyLlama-1.1B | Very Slow | CPU (~4GB) |
+        | Model | Speed | RAM Usage | Recommended |
+        |-------|-------|-----------|--------------|
+        | SmolLM2-360M | Fast | ~2GB | CPU/GPU |
+        | Qwen2.5-3B | Medium | ~6GB | GPU only |
+        | TinyLlama-1.1B | Slow | ~4GB | CPU only |
+
+        ### Memory Tips
+        - Use **SmolLM2-360M** for best performance on limited RAM
+        - Click **"Clear Model Cache"** between model changes
+        - Process logs in smaller batches (the app automatically batches them)
+        - For large files (>1000 lines), consider splitting them
+
+        ### Fixing the Model Error
+        If you see `'_is_hf_initialized'` error, run:
+        ```bash
+        pip install --upgrade transformers bitsandbytes accelerate
 
         ### Column Explanation
         - **Asset**: System component (web server, database, workstation, test env)
