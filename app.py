@@ -318,8 +318,7 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
             output_table = gr.Dataframe(
                 label="Risk Register",
                 wrap=True,
-                interactive=False,
-                max_rows=50  # Limit visible rows to reduce memory
+                interactive=False
             )
             
             with gr.Row():
