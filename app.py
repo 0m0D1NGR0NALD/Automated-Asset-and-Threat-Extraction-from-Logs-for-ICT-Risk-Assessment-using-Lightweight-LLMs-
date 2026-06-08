@@ -7,6 +7,10 @@ import sys
 import os
 from pathlib import Path
 import gc
+import torch
+
+# Suppress symlink warning
+os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
 
 # Add current directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -64,6 +68,10 @@ def process_logs(logs, model_name, few_shot, confidence_threshold):
     
     if not lines:
         return pd.DataFrame(), "No valid log lines."
+    
+    # Fix for torch.float8_e8m0fnu attribute error
+    if not hasattr(torch, 'float8_e8m0fnu'):
+        torch.float8_e8m0fnu = None
     
     try:
         extractor_class = EXTRACTORS.get(model_name, SmolLM2Extractor)
