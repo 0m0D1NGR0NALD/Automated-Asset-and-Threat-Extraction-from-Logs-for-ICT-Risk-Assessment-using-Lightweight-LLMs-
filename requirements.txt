@@ -1,9 +1,10 @@
-transformers
-torch
-accelerate
-bitsandbytes
+torch==2.4.0
+transformers==4.40.2
+accelerate==0.30.1
+sentencepiece
 scikit-learn
 pyyaml
 pandas
 python-dotenv
 gradio
+python==3.12.0
