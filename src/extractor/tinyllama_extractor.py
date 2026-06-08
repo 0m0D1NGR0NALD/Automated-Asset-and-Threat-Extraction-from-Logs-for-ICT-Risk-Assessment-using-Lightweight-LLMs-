@@ -68,9 +68,7 @@ Do not add any extra text."""
                 {"role": "user", "content": "Log: GET /product.jsp?id=1' OR '1'='1"},
                 {"role": "assistant", "content": '{"asset": "public_web_server", "threat": "sql_injection", "confidence": 0.98}'},
                 {"role": "user", "content": "Log: GET /search?q=<script>alert(1)</script>"},
-                {"role": "assistant", "content": '{"asset": "public_web_server", "threat": "xss", "confidence": 0.96}'},
-                {"role": "user", "content": "Log: GET /admin/config.php"},
-                {"role": "assistant", "content": '{"asset": "public_web_server", "threat": "malicious_file", "confidence": 0.92}'}
+                {"role": "assistant", "content": '{"asset": "public_web_server", "threat": "xss", "confidence": 0.96}'}
             ]
             messages.extend(examples)
 
