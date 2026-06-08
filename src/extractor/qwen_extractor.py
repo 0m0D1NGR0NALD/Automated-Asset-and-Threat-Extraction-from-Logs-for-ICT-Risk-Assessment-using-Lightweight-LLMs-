@@ -4,8 +4,16 @@ import re
 import logging
 from typing import Dict, Any, Optional
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+import os
 
 from .base_extractor import BaseExtractor
+
+# Fix for torch.float8_e8m0fnu attribute error
+if not hasattr(torch, 'float8_e8m0fnu'):
+    torch.float8_e8m0fnu = None
+
+# Suppress symlink warning on Windows
+os.environ['HF_HUB_DISABLE_SYMLINKS_WARNING'] = '1'
 
 logger = logging.getLogger(__name__)
 

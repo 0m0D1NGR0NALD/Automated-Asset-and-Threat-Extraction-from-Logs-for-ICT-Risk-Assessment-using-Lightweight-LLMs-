@@ -15,6 +15,7 @@ from src.risk.risk_scorer import RiskScorer
 from src.risk.confidence_filter import ConfidenceFilter
 from src.output.csv_generator import CSVGenerator
 from datetime import datetime
+import torch
 
 logger = setup_logger()
 
@@ -53,6 +54,10 @@ def main():
         cleaned, timestamp, ip = LogPreprocessor.clean_line(raw_text)
         if not cleaned:
             continue
+        
+            # Fix for torch.float8_e8m0fnu attribute error
+        if not hasattr(torch, 'float8_e8m0fnu'):
+            torch.float8_e8m0fnu = None
         
         # Extract
         extraction = extractor.extract(cleaned)
