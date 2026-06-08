@@ -38,15 +38,17 @@ class QwenExtractor(BaseExtractor):
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
         model_kwargs = {"device_map": "auto" if self.device == "cuda" else None}
+        
         if use_4bit and self.device == "cuda":
             try:
                 quantization_config = BitsAndBytesConfig(
                     load_in_4bit=True,
                     bnb_4bit_compute_dtype=torch.float16,
                     bnb_4bit_use_double_quant=True,
+                    llm_int8_enable_fp32_cpu_offload=True,  # <-- ADD THIS LINE
                 )
                 model_kwargs["quantization_config"] = quantization_config
-                logger.info("Using 4‑bit quantisation (Qwen)")
+                logger.info("Using 4‑bit quantisation (Qwen) with CPU offload enabled")
             except ImportError:
                 logger.warning("bitsandbytes not installed – loading in full precision")
         else:
