@@ -45,7 +45,7 @@ class QwenExtractor(BaseExtractor):
                     load_in_4bit=True,
                     bnb_4bit_compute_dtype=torch.float16,
                     bnb_4bit_use_double_quant=True,
-                    llm_int8_enable_fp32_cpu_offload=True,  # <-- ADD THIS LINE
+                    llm_int8_enable_fp32_cpu_offload=True,
                 )
                 model_kwargs["quantization_config"] = quantization_config
                 logger.info("Using 4‑bit quantisation (Qwen) with CPU offload enabled")
