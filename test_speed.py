@@ -1,4 +1,4 @@
-# test_speed.py - Test all three models
+# Test inference speed of all three models
 import time
 from src.extractor.smolLM2_extractor import SmolLM2Extractor
 from src.extractor.qwen_extractor import QwenExtractor
