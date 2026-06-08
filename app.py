@@ -273,9 +273,6 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
             "attack": true,
             "threat_type": "privilege_escalation"
             }
-
-
-
                     
         ### Risk Scoring
         **Risk Score = Impact × Likelihood** (1–25)
