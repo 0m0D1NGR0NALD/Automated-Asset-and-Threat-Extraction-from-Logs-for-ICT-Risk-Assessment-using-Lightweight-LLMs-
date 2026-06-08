@@ -1,4 +1,3 @@
-# compare_models_uniform.py
 import argparse
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
