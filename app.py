@@ -254,6 +254,29 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
             GET http://localhost:8080/index.jsp HTTP/1.1
             POST http://localhost:8080/login.jsp user=admin&pwd=12345
                     
+        ### Samples
+                    
+            {
+            "raw": "POST http://localhost:8080/login.jsp user=admin' OR '1'='1&pwd=anything",
+            "attack": true,
+            "threat_type": "sql_injection"
+            }
+                    
+            {
+            "raw": "GET http://localhost:8080/search.jsp?q=<script>alert('xss')</script>",
+            "attack": true,
+            "threat_type": "xss"
+            }
+                    
+            {
+            "raw": "POST http://localhost:8080/updateRole.jsp user=bob&role=admin",
+            "attack": true,
+            "threat_type": "privilege_escalation"
+            }
+
+
+
+                    
         ### Risk Scoring
         **Risk Score = Impact × Likelihood** (1–25)
 
