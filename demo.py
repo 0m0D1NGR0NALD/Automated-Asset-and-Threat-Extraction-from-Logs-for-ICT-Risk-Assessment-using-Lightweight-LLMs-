@@ -2,6 +2,8 @@
 Demo: runs the best model (Qwen2.5-3B + few‑shot) on a given log file.
 Usage: python demo.py <input_file> [output_file]
 If output_file is omitted, defaults to "demo_results.csv"
+
+Using "tinyllama" due to hardware contraints
 """
 import sys
 import subprocess
@@ -45,7 +47,7 @@ def main():
 
     cmd = [
         python_exe, "-m", "src.main",
-        "--model", "qwen",
+        "--model", "tinyllama",
         "--few-shot",
         "-i", tmp_path,
         "-o", output_file
