@@ -49,7 +49,7 @@ class TinyLlamaExtractor(BaseExtractor):
         system_prompt = """You are a cybersecurity risk analyst. Analyze the following HTTP request log.
 Output ONLY a valid JSON object with three keys: "asset", "threat", "confidence".
 Possible assets: public_web_server, internal_database, developer_workstation, test_environment, IoT_device, unknown.
-Possible threats: sql_injection, xss, privilege_escalation, malicious_file, info_leak, command_and_control, port_scan, unknown, benign.
+Possible threats: sql_injection, xss, path traversal, privilege_escalation, malicious_file, info_leak, command_and_control, port_scan, unknown, benign.
 Confidence must be a float between 0.0 and 1.0.
 
 Example output: {"asset": "public_web_server", "threat": "sql_injection", "confidence": 0.95}
