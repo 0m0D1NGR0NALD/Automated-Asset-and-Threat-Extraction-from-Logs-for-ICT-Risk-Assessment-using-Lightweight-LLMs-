@@ -409,7 +409,7 @@ with gr.Blocks(title="ICT Risk Assessment Tool", theme=gr.themes.Soft()) as demo
         If you see `'_is_hf_initialized'` error, run:
         ```bash
         pip install --upgrade transformers bitsandbytes accelerate
-
+        ```
         ### Column Explanation
         - **Asset**: System component (web server, database, workstation, test env)
         - **Threat**: Attack type (SQL injection, XSS, brute force, etc.)
